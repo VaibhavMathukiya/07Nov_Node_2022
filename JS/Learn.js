@@ -120,28 +120,105 @@ var mul = (a, b) => {
 // console.log(fname);
 // console.log(lname);
 
-function mydata() {
-    //var fname = "tech";
-    //let lname = "tops";
-    if (true) {
-        var fname = "tech";
-        let lname = "tops";
-    }
-    console.log(fname);
-    console.log(lname);
-}
+// function mydata() {
+//     //var fname = "tech";
+//     //let lname = "tops";
+//     if (true) {
+//         var fname = "tech";
+//         let lname = "tops";
+//     }
+//     console.log(fname);
+//     console.log(lname);
+// }
 
 //mydata()
 
+//var a = [10, 20, 30, 40, 50, 50];
+
+//console.log(a.length);
+//console.log(a[2]);
+//console.log(a.reverse());
+//console.log(a.pop());
+//console.log(a.pop());
+//a.push(100);
+//a.push(200);
+//a.shift()
+//a.shift();
+//console.log(a.length);
+// a.unshift(500);
+// console.log(a);
+
+// var sum = 0;
+// var max = a[0];
+// for (var i = 0; i < a.length; i++) {
+//     //console.log(a[i]);
+//     sum = sum + a[i];
+
+//     if (a[i] > max) {
+//         max = a[i];
+//     }
+// }
+
+// console.log("addition is : " + sum);
+// console.log("avg is : " + (sum / a.length));
+// console.log("max is : " + max);
+//var sub = ["node", "java", "react", 30, 74.55, 'a'];
+//console.log(sub);
 
 
 
+var str = "sun rises in East";
+
+// console.log(str.length);
+// console.log(str.toLowerCase());
+// console.log(str.toUpperCase());
+// console.log(str.slice(4, 9));
+// console.log(str.replace("sun", "moon"));
+//console.log(str.replaceAll("sun", "moon"));
+//console.log(str.charAt(5));
+// console.log(str.indexOf("s"));
+// console.log(str.lastIndexOf("s"));
+// console.log(str.endsWith("suns"));
+// console.log(str.startsWith("sun"));
+//console.log(str.trim());
+// console.log(str.trimStart().concat("abcd"));
+// console.log(str.trimEnd().concat("abcd"));
+
+//var s = str.split(" ")
+
+// for (var i = s.length - 1; i >= 0; i--) {
+//     console.log(s[i]);
+// }
+
+// var temp = s[0];
+// s[0] = s[s.length - 1];
+// s[s.length - 1] = temp;
+
+// for (var i = 0; i < s.length; i++) {
+//     console.log(s[i]);
+// }
 
 
+//obj
 
+var obj1 = {
+    name: "Jinal",
+    email: "jinal@gmail.com",
+    phno: 98653626
+}
 
+var obj2 = {
+    name: "Hemali",
+    email: "hemali@gmail.com",
+    phno: 89635241
+}
 
+// console.log(obj1);
+// console.log(obj1.name);
 
+var ar = [obj1, obj2];
+
+console.log(ar);
 
 
 
