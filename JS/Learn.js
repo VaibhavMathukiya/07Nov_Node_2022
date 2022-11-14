@@ -201,27 +201,54 @@ var str = "sun rises in East";
 
 //obj
 
-var obj1 = {
-    name: "Jinal",
-    email: "jinal@gmail.com",
-    phno: 98653626
-}
+// var obj1 = {
+//     name: "Jinal",
+//     email: "jinal@gmail.com",
+//     phno: 98653626
+// }
 
-var obj2 = {
-    name: "Hemali",
-    email: "hemali@gmail.com",
-    phno: 89635241
-}
+// var obj2 = {
+//     name: "Hemali",
+//     email: "hemali@gmail.com",
+//     phno: 89635241
+// }
 
-// console.log(obj1);
-// console.log(obj1.name);
+// // console.log(obj1);
+// // console.log(obj1.name);
 
-var ar = [obj1, obj2];
-
-console.log(ar);
-
+// var ar = [obj1, obj2];
+// console.log(ar);
 
 
+// var a;
+// class Demo {
+
+//     constructor(x) {
+//         a = x;
+//         console.log("cons calling...");
+//     }
+//     display() {
+
+//         console.log("display method calling : " + a);
+//     }
+//     static sample() {
+//         console.log("Sample calling");
+//     }
+// }
+
+// var myDemo = new Demo(10);
+// myDemo.display();
+// myDemo.sample();
+
+// var myDemo1 = new Demo(20);
+// myDemo1.display()
 
 
+// Demo.sample()
 
+
+// const mydate = new Date();
+// console.log(mydate);
+// console.log(mydate.getDate());
+// console.log(mydate.getDay());
+// console.log(mydate.getFullYear());
