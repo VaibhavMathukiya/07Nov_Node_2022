@@ -4,7 +4,7 @@ const weather = require("./weather")
 const city = process.argv[2]
 if (!city) {
 
-    console.log("enter city name");
+    console.log("enter city name")
     return
 }
 
@@ -23,7 +23,7 @@ geocode.getGeoCode(city, (err, data) => {
             console.log("Invalid api");
             return;
         }
-        console.log(data);
+
     })
 
 })
