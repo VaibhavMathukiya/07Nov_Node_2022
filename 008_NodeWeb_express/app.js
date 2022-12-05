@@ -1,6 +1,6 @@
 const express = require("express")
 const app = express();
-const path = require("path")
+const path = require("path");
 const PORT = 9000;
 
 
@@ -17,6 +17,15 @@ app.get("/about", (req, resp) => {
     resp.sendFile(path.join(__dirname, "about.html"))
 })
 
+app.get("/contact", (req, resp) => {
+    resp.sendFile(path.join(__dirname, "contact.html"))
+})
+
+app.get("/help", (req, resp) => {
+    resp.sendFile(path.join(__dirname, "help.html"))
+})
+
+
 app.get("*", (resq, resp) => {
     resp.send("404 not fount")
 })
@@ -25,3 +34,4 @@ app.listen(PORT, () => {
     console.log("Server running on port" + PORT);
 })
 
+//app.listen(PORT)
