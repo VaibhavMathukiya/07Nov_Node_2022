@@ -23,7 +23,7 @@ geocode.getGeoCode(city, (err, data) => {
             console.log("Invalid api");
             return;
         }
-
+        console.log(data);
     })
 
 })
