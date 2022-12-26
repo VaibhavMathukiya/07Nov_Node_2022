@@ -4,15 +4,24 @@ const dbUrl = "mongodb://127.0.0.1:27017"
 const dbName = "example"
 
 
-mongoClient.connect(dbUrl, (err, client) => {
-    if (err) {
-        console.log(err);
-        return
-    }
-    console.log("db connected successfully");
+// mongoClient.connect(dbUrl).then(client=>{
+//     console.log("db connected...");
+//     const db = client.db(dbName)
+   
 
-    const db = client.db(dbName)
-    console.log("db connected");
+// }).catch(err=>{
+//     console.log(err);
+// })
+
+//mongoClient.connect(dbUrl, (err, client) => {
+    // if (err) {
+    //     console.log(err);
+    //     return
+    // }
+    // console.log("db connected successfully");
+
+    // const db = client.db(dbName)
+    // console.log("db connected");
 
     //*****new collection*****/
     // db.createCollection("reg", (err, res) => {
@@ -81,4 +90,4 @@ mongoClient.connect(dbUrl, (err, client) => {
     
 
 
-})
+//})
