@@ -11,10 +11,15 @@ mongoose.connect(dburl).then(() => {
 
 const productSchema = new mongoose.Schema({
     name: {
-        type: String
+        type: String,
+        required: true,
+        enum: ["pen", "fan", "Mouse"],
+
     },
     price: {
-        type: Number
+        type: Number,
+        min: 4,
+        max: 10
     },
     qty: {
         type: Number,
@@ -24,14 +29,23 @@ const productSchema = new mongoose.Schema({
 
 const Product = new mongoose.model("Product", productSchema);
 
-const addProduct = () => {
+const addProduct = async () => {
 
-    const p1 = new Product({ name: "Fan", price: 500 })
-    p1.save().then(data => {
+    // const p1 = new Product({ name: "Remote", price: 500 })
+    // p1.save().then(data => {
+    //     console.log(data);
+    // }).catch(err => {
+    //     console.log(err);
+    // })
+
+    try {
+        const p1 = new Product({ name: "pen", price: 500 })
+        const data = await p1.save();
         console.log(data);
-    }).catch(err => {
-        console.log(err);
-    })
+    } catch (error) {
+        console.log(error);
+    }
+
 }
 
 const addManyProduct = () => {
@@ -97,9 +111,9 @@ const updateProduct = async () => {
     }
 }
 
-//addProduct();
+addProduct();
 //addManyProduct()
 //viewProduct()
 //viewFilter()
 //deleteProduct()
-updateProduct()
+//updateProduct()
