@@ -2,7 +2,7 @@ const express = require("express")
 const router = express.Router()
 const User = require("../model/User")
 const bcrypt = require("bcryptjs")
-router.post("/users", async (req, resp) => {
+router.post("/", async (req, resp) => {
     try {
         const user = new User(req.body)
 
@@ -14,7 +14,7 @@ router.post("/users", async (req, resp) => {
 
 })
 
-router.get("/users", async (req, resp) => {
+router.get("/", async (req, resp) => {
     try {
         const user = await User.find();
         resp.send(user)
@@ -23,7 +23,7 @@ router.get("/users", async (req, resp) => {
     }
 })
 
-router.get("/users/:id", async (req, resp) => {
+router.get("/:id", async (req, resp) => {
     const id = req.params.id
     try {
         const user = await User.findById(id);
@@ -34,7 +34,7 @@ router.get("/users/:id", async (req, resp) => {
 
 })
 
-router.put("/users/:id", async (req, resp) => {
+router.put("/:id", async (req, resp) => {
     const id = req.params.id
     try {
         const data = await User.findByIdAndUpdate(id, req.body);
@@ -44,7 +44,7 @@ router.put("/users/:id", async (req, resp) => {
     }
 })
 
-router.delete("/users/:id", async (req, resp) => {
+router.delete("/:id", async (req, resp) => {
     const id = req.params.id
     try {
         const data = await User.findByIdAndDelete(id);
