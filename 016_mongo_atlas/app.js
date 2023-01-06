@@ -15,9 +15,11 @@ mongoose.connect(dburl).then(() => {
 const userrouter = require("./router/userrouter")
 const categoryrouter = require("./router/categoryrouter")
 const productrouter = require("./router/productrouter")
+const cartrouter = require("./router/cartrouter")
 app.use("/users", userrouter)
 app.use("/categories", categoryrouter)
 app.use("/products", productrouter)
+app.use("/carts", cartrouter)
 
 app.listen(PORT, () => {
     console.log("Server running on port : " + PORT);
