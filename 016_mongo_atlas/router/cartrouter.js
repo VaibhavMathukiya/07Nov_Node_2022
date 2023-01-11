@@ -2,10 +2,17 @@ const express = require("express")
 const mongoose = require("mongoose")
 const router = express.Router()
 const Cart = require("../model/Cart")
+const auth = require("../middleware/auth")
 
-router.post("/", async (req, resp) => {
+router.post("/", auth, async (req, resp) => {
+
+
     try {
-        const cat = new Cart(req.body)
+        const cat = new Cart({
+            uid: req.uid,
+            pid: req.body.pid,
+            qty: req.body.qty
+        })
         const result = await cat.save();
         resp.send(result)
     } catch (error) {
@@ -13,7 +20,7 @@ router.post("/", async (req, resp) => {
     }
 })
 
-router.get("/", async (req, resp) => {
+router.get("/", auth, async (req, resp) => {
     try {
 
 
@@ -56,8 +63,9 @@ router.put("/:id", async (req, resp) => {
 })
 
 
-router.get("/user/:id", async (req, resp) => {
-    const _id = mongoose.Types.ObjectId(req.params.id)
+router.get("/user/:id", auth, async (req, resp) => {
+    //const _id = mongoose.Types.ObjectId(req.params.id)
+    const _id = mongoose.Types.ObjectId(req.uid)
     console.log(_id)
     try {
         const result = await Cart.aggregate([{ $match: { 'uid': _id } }, { $lookup: { from: 'products', localField: 'pid', foreignField: '_id', as: 'product' } }, { $lookup: { from: 'users', localField: 'uid', foreignField: '_id', as: 'user' } }]);

@@ -2,6 +2,8 @@ const express = require("express")
 const router = express.Router()
 const User = require("../model/User")
 const bcrypt = require("bcryptjs")
+const jwt = require("jsonwebtoken")
+const auth = require("../middleware/auth")
 router.post("/", async (req, resp) => {
     try {
         const user = new User(req.body)
@@ -14,7 +16,7 @@ router.post("/", async (req, resp) => {
 
 })
 
-router.get("/", async (req, resp) => {
+router.get("/", auth, async (req, resp) => {
     try {
         const user = await User.find();
         resp.send(user)
@@ -69,7 +71,10 @@ router.post("/login", async (req, resp) => {
                 resp.send("Invalid email or password")
             }
             else {
-                resp.send("welcome : " + data.username)
+
+                const token = await jwt.sign({ _id: data._id }, "thisismytokenverificatinkey")
+                console.log(token);
+                resp.send("auth-token : " + token)
             }
         }
 
