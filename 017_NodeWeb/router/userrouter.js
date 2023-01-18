@@ -1,6 +1,6 @@
 const router = require("express").Router()
 const User = require("../model/User")
-
+const bcrypt = require("bcryptjs")
 router.get("/", (req, resp) => {
     resp.render("index")
 })
@@ -56,5 +56,32 @@ router.post("/updateUser", async (req, resp) => {
     }
 })
 
+router.get("/loginpage", (req, resp) => {
+    resp.render("login")
+})
 
+router.post("/login", async (req, resp) => {
+
+    try {
+        const user = await User.findOne({ email: req.body.email })
+
+        const isvalid = await bcrypt.compare(req.body.password, user.password)
+
+        if (isvalid) {
+
+
+            const token = await user.generateToken();
+            
+            resp.redirect("display")
+        }
+        else {
+            resp.render("login", { msg: "Invalid email or password" })
+        }
+
+    } catch (error) {
+        resp.render("login", { msg: "Invalid email or password" })
+    }
+
+
+})
 module.exports = router
